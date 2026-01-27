@@ -1,3 +1,31 @@
+/* === GLOBAL RESET === */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  overflow-x: hidden;
+  background-color: #0F172A; /* или какъвто ти е основния фон */
+}
+
+/* =====================
+   GLOBAL HELPERS
+===================== */
+
+:root {
+    --container-width: 1200px;
+    --nav-height: 72px;
+}
+
+* {
+    box-sizing: border-box;
+}
+
 /* =====================
    HEADER & NAV
 ===================== */
@@ -5,10 +33,10 @@
 header {
     position: sticky;
     top: 0;
-    z-index: 1000;
+    z-index: 1100;
     background: rgba(255,255,255,0.96);
     backdrop-filter: blur(6px);
-    transition: all 0.3s ease;
+    transition: box-shadow 0.3s ease, background 0.3s ease;
 }
 
 header.scrolled {
@@ -16,9 +44,10 @@ header.scrolled {
 }
 
 nav {
-    max-width: 1200px;
+    max-width: var(--container-width);
     margin: 0 auto;
     padding: 16px 20px;
+    min-height: var(--nav-height);
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -31,6 +60,7 @@ nav {
     color: #0F172A;
     text-decoration: none;
     letter-spacing: 1px;
+    white-space: nowrap;
 }
 
 /* NAV LINKS */
@@ -47,20 +77,28 @@ nav {
 
 .nav-links a {
     text-decoration: none;
-    font-size: 15px;
+    font-size: 16px;          /* ⬅️ по-голям текст */
     color: #334155;
-    font-weight: 500;
+    font-weight: 600;
+    padding: 10px 6px;        /* ⬅️ по-голяма кликаема зона */
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
     transition: color 0.2s ease;
 }
+
 
 .nav-links a:hover {
     color: #0284C7;
 }
 
-/* DROPDOWN */
+/* =====================
+   DROPDOWN
+===================== */
+
 .dropdown-menu {
     position: absolute;
-    top: 130%;
+    top: calc(100% + 14px);
     left: 0;
     background: #ffffff;
     min-width: 260px;
@@ -69,13 +107,9 @@ nav {
     opacity: 0;
     visibility: hidden;
     transform: translateY(10px);
-    transition: all 0.25s ease;
+    transition: opacity 0.25s ease, transform 0.25s ease;
     padding: 10px 0;
-    z-index: 999;
-}
-
-.dropdown-menu li {
-    padding: 0;
+    z-index: 1200;
 }
 
 .dropdown-menu a {
@@ -83,18 +117,42 @@ nav {
     padding: 12px 20px;
     color: #0F172A;
     font-size: 14px;
+    white-space: nowrap;
 }
 
 .dropdown-menu a:hover {
     background: #F1F5F9;
 }
 
-/* SHOW DROPDOWN */
-.dropdown:hover .dropdown-menu {
+.arrow {
+    font-size: 12px;
+    transition: transform 0.25s ease;
+}
+
+/* когато dropdown е активен */
+.dropdown.active .arrow {
+    transform: rotate(180deg);
+}
+
+.dropdown.active .dropdown-menu {
     opacity: 1;
     visibility: visible;
     transform: translateY(0);
 }
+
+.dropdown-menu {
+    top: calc(100% + 10px);
+    transition:
+        opacity 0.2s ease,
+        transform 0.2s ease;
+}
+
+.dropdown-toggle {
+    cursor: pointer;
+}
+
+
+
 /* =====================
    HAMBURGER
 ===================== */
@@ -128,6 +186,7 @@ nav {
     padding: 30px 20px;
     transition: right 0.3s ease;
     box-shadow: -10px 0 30px rgba(0,0,0,0.15);
+    overflow-y: auto;
 }
 
 .side-menu.active {
@@ -136,6 +195,7 @@ nav {
 
 .side-menu ul {
     list-style: none;
+    padding: 0;
 }
 
 .side-menu li {
@@ -153,7 +213,7 @@ nav {
 .close-btn {
     background: none;
     border: none;
-    font-size: 30px;
+    font-size: 32px;
     cursor: pointer;
     position: absolute;
     top: 15px;
@@ -165,6 +225,9 @@ nav {
     display: none;
     position: static;
     box-shadow: none;
+    transform: none;
+    opacity: 1;
+    visibility: visible;
     padding-left: 10px;
 }
 
@@ -172,11 +235,12 @@ nav {
     display: block;
 }
 
-/* RESPONSIVE */
+/* RESPONSIVE NAV */
 @media (max-width: 992px) {
     .nav-links {
         display: none;
     }
+
     .hamburger {
         display: flex;
     }
@@ -191,14 +255,15 @@ nav {
     min-height: 90vh;
     display: flex;
     align-items: center;
-    background: 
+    background:
         linear-gradient(rgba(15, 23, 42, 0.75), rgba(15, 23, 42, 0.75)),
-        url("../images/hero-vik.jpg") center/cover no-repeat;
+        url("../images/hero-vik.jpg") center / cover no-repeat;
     color: #ffffff;
 }
 
 .hero-content {
     max-width: 720px;
+    margin-left: clamp(20px, 6vw, 80px);
     padding: 80px 20px;
 }
 
@@ -255,7 +320,7 @@ nav {
     font-size: 15px;
     font-weight: 600;
     text-decoration: none;
-    transition: all 0.25s ease;
+    transition: transform 0.25s ease, background 0.25s ease;
 }
 
 .btn.primary {
@@ -293,14 +358,15 @@ nav {
     }
 }
 
-/* MOBILE */
+/* HERO MOBILE */
 @media (max-width: 768px) {
     .hero {
         min-height: 85vh;
     }
 
     .hero-content {
-        padding-top: 100px;
+        margin-left: 0;
+        padding-top: 110px;
     }
 
     .hero-buttons {
@@ -309,6 +375,7 @@ nav {
 
     .btn {
         text-align: center;
+        width: 100%;
     }
 }
 
@@ -318,7 +385,7 @@ nav {
 
 .trust {
     background: #F8FAFC;
-    padding: 80px 20px;
+    padding: clamp(60px, 8vw, 80px) 20px;
 }
 
 .trust .container {
@@ -328,7 +395,7 @@ nav {
 
 .trust h2 {
     text-align: center;
-    font-size: 32px;
+    font-size: clamp(26px, 4vw, 32px);
     font-weight: 800;
     color: #0F172A;
     margin-bottom: 50px;
@@ -349,7 +416,7 @@ nav {
     align-items: center;
     gap: 14px;
     box-shadow: 0 10px 25px rgba(0,0,0,0.05);
-    transition: all 0.25s ease;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
 /* ICON */
@@ -364,18 +431,14 @@ nav {
     font-size: 15px;
     font-weight: 600;
     color: #334155;
+    line-height: 1.4;
 }
 
 /* HOVER */
-.trust-grid > div:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 16px 35px rgba(0,0,0,0.08);
-}
-
-/* MOBILE */
-@media (max-width: 600px) {
-    .trust h2 {
-        font-size: 26px;
+@media (hover: hover) {
+    .trust-grid > div:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 16px 35px rgba(0,0,0,0.08);
     }
 }
 
@@ -385,7 +448,7 @@ nav {
 
 .services {
     background: #ffffff;
-    padding: 90px 20px;
+    padding: clamp(70px, 9vw, 90px) 20px;
 }
 
 .services .container {
@@ -395,7 +458,7 @@ nav {
 
 .services h2 {
     text-align: center;
-    font-size: 32px;
+    font-size: clamp(26px, 4vw, 32px);
     font-weight: 800;
     color: #0F172A;
     margin-bottom: 60px;
@@ -414,8 +477,8 @@ nav {
     border-radius: 18px;
     padding: 40px 28px;
     text-align: center;
-    transition: all 0.25s ease;
     border: 1px solid #E2E8F0;
+    transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
 }
 
 /* ICON */
@@ -423,6 +486,7 @@ nav {
     font-size: 32px;
     color: #0284C7;
     margin-bottom: 20px;
+    transition: color 0.25s ease;
 }
 
 /* TITLE */
@@ -441,20 +505,15 @@ nav {
 }
 
 /* HOVER */
-.service-grid article:hover {
-    background: #ffffff;
-    transform: translateY(-6px);
-    box-shadow: 0 20px 40px rgba(0,0,0,0.08);
-}
+@media (hover: hover) {
+    .service-grid article:hover {
+        background: #ffffff;
+        transform: translateY(-6px);
+        box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+    }
 
-.service-grid article:hover i {
-    color: #16A34A;
-}
-
-/* MOBILE */
-@media (max-width: 600px) {
-    .services h2 {
-        font-size: 26px;
+    .service-grid article:hover i {
+        color: #16A34A;
     }
 }
 
@@ -464,7 +523,7 @@ nav {
 
 .about {
     background: linear-gradient(135deg, #0F172A, #020617);
-    padding: 90px 20px;
+    padding: clamp(70px, 9vw, 90px) 20px;
     color: #ffffff;
 }
 
@@ -475,7 +534,7 @@ nav {
 }
 
 .about h2 {
-    font-size: 32px;
+    font-size: clamp(26px, 4vw, 32px);
     font-weight: 800;
     margin-bottom: 30px;
     position: relative;
@@ -503,7 +562,7 @@ nav {
 
 .areas {
     background: #F8FAFC;
-    padding: 90px 20px;
+    padding: clamp(70px, 9vw, 90px) 20px;
 }
 
 .areas .container {
@@ -513,7 +572,7 @@ nav {
 }
 
 .areas h2 {
-    font-size: 32px;
+    font-size: clamp(26px, 4vw, 32px);
     font-weight: 800;
     margin-bottom: 25px;
     color: #0F172A;
@@ -538,7 +597,7 @@ nav {
     line-height: 1.7;
 }
 
-/* link button */
+/* LINK BUTTON */
 .btn.link {
     background: transparent;
     color: #16A34A;
@@ -547,51 +606,70 @@ nav {
     border: 2px solid #22C55E;
     border-radius: 999px;
     text-decoration: none;
-    transition: all 0.3s ease;
+    transition: background 0.3s ease, color 0.3s ease, transform 0.2s ease;
 }
 
-.btn.link:hover {
-    background: #22C55E;
-    color: #ffffff;
+@media (hover: hover) {
+    .btn.link:hover {
+        background: #22C55E;
+        color: #ffffff;
+        transform: translateY(-2px);
+    }
 }
 
 /* =====================
-   CONTACT SECTION
+   CONTACT SECTION – ENHANCED
 ===================== */
 
 .contact {
-    background: #0F172A;
-    padding: 100px 20px;
+    position: relative;
+    background:
+        radial-gradient(600px 300px at 50% -10%, rgba(34,197,94,0.12), transparent 60%),
+        #0F172A;
+    padding: clamp(80px, 10vw, 120px) 20px;
     color: #ffffff;
+    overflow: hidden;
 }
 
+/* container */
 .contact .container {
-    max-width: 600px;
+    max-width: 620px;
     margin: 0 auto;
     text-align: center;
 }
 
+/* title */
 .contact h2 {
-    font-size: 32px;
+    font-size: clamp(26px, 4vw, 34px);
     font-weight: 800;
-    margin-bottom: 35px;
+    margin-bottom: 40px;
     position: relative;
+    letter-spacing: -0.4px;
 }
 
 .contact h2::after {
     content: "";
     display: block;
-    width: 70px;
+    width: 72px;
     height: 4px;
-    background: #22C55E;
+    background: linear-gradient(90deg, #22C55E, #4ADE80);
     margin: 18px auto 0;
-    border-radius: 3px;
+    border-radius: 999px;
 }
 
+/* form wrapper */
 .contact form {
     display: flex;
     flex-direction: column;
     gap: 18px;
+    background: rgba(255,255,255,0.03);
+    backdrop-filter: blur(10px);
+    padding: 32px 26px;
+    border-radius: 22px;
+    border: 1px solid rgba(255,255,255,0.08);
+    box-shadow:
+        0 20px 40px rgba(0,0,0,0.35),
+        inset 0 1px 0 rgba(255,255,255,0.05);
 }
 
 /* inputs */
@@ -599,56 +677,108 @@ nav {
 .contact textarea {
     padding: 16px 18px;
     font-size: 16px;
-    border-radius: 10px;
-    border: none;
+    border-radius: 14px;
+    border: 1px solid transparent;
     outline: none;
     background: #ffffff;
     color: #0F172A;
+    width: 100%;
+    transition:
+        box-shadow 0.25s ease,
+        border-color 0.25s ease,
+        transform 0.15s ease;
 }
 
 .contact textarea {
-    min-height: 130px;
+    min-height: 140px;
     resize: vertical;
 }
 
-/* focus effect */
+/* focus */
 .contact input:focus,
 .contact textarea:focus {
-    box-shadow: 0 0 0 3px rgba(34,197,94,0.35);
+    border-color: #22C55E;
+    box-shadow:
+        0 0 0 3px rgba(34,197,94,0.35),
+        0 8px 20px rgba(34,197,94,0.25);
 }
 
-/* checkbox */
 .checkbox {
     display: flex;
-    align-items: flex-start;
-    gap: 10px;
+    align-items: center;
+    gap: 12px;
     font-size: 14px;
     color: #CBD5E1;
-    text-align: left;
+    line-height: 1.4;
 }
 
 .checkbox input {
-    margin-top: 3px;
+    width: 18px;
+    height: 18px;
+    accent-color: #22C55E;
+    flex-shrink: 0;
 }
+
+.checkbox a {
+    color: #22C55E;
+    font-weight: 600;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+
+@media (hover: hover) {
+    .checkbox a:hover {
+        color: #4ADE80;
+    }
+}
+
+.checkbox-error {
+    display: none;
+    margin-top: -6px;
+    font-size: 13px;
+    color: #F87171;
+    text-align: left;
+}
+
 
 /* button */
 .contact .btn.primary {
-    margin-top: 10px;
+    margin: 18px auto 0;
     padding: 16px;
     font-size: 17px;
     font-weight: 700;
     border-radius: 999px;
-    background: #22C55E;
+    background: linear-gradient(180deg, #22C55E, #16A34A);
     color: #ffffff;
     border: none;
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease,
+        background 0.25s ease;
+    width: 100%;
+    max-width: 420px;
+    box-shadow:
+        0 14px 30px rgba(34,197,94,0.35),
+        inset 0 1px 0 rgba(255,255,255,0.3);
 }
 
-.contact .btn.primary:hover {
-    background: #16A34A;
-    transform: translateY(-2px);
+@media (hover: hover) {
+    .contact .btn.primary:hover {
+        transform: translateY(-3px);
+        box-shadow:
+            0 20px 45px rgba(34,197,94,0.45),
+            inset 0 1px 0 rgba(255,255,255,0.35);
+    }
 }
+
+/* mobile polish */
+@media (max-width: 480px) {
+    .contact form {
+        padding: 26px 20px;
+    }
+}
+
 
 /* =====================
    FAQ SECTION
@@ -656,7 +786,7 @@ nav {
 
 .faq-section {
     background: #F8FAFC;
-    padding: 100px 20px;
+    padding: clamp(70px, 10vw, 100px) 20px;
 }
 
 .faq-container {
@@ -666,7 +796,7 @@ nav {
 
 .faq-container h2 {
     text-align: center;
-    font-size: 34px;
+    font-size: clamp(26px, 4vw, 34px);
     font-weight: 800;
     margin-bottom: 50px;
     color: #0F172A;
@@ -691,7 +821,7 @@ nav {
     overflow: hidden;
 }
 
-/* question button */
+/* question */
 .faq-question {
     width: 100%;
     background: none;
@@ -705,7 +835,7 @@ nav {
     color: #0F172A;
 }
 
-/* plus / minus icon */
+/* plus / minus */
 .faq-question::after {
     content: "+";
     position: absolute;
@@ -714,7 +844,7 @@ nav {
     transform: translateY(-50%);
     font-size: 26px;
     color: #22C55E;
-    transition: transform 0.3s ease;
+    transition: transform 0.25s ease;
 }
 
 .faq-item.active .faq-question::after {
@@ -751,7 +881,7 @@ nav {
 
 .location-seo {
     background: #ffffff;
-    padding: 90px 20px;
+    padding: clamp(70px, 9vw, 90px) 20px;
 }
 
 .location-wrapper {
@@ -761,7 +891,7 @@ nav {
 }
 
 .location-seo h2 {
-    font-size: 30px;
+    font-size: clamp(24px, 4vw, 30px);
     font-weight: 800;
     margin-bottom: 28px;
     color: #0F172A;
@@ -784,13 +914,13 @@ nav {
 
 .cta {
     background: linear-gradient(135deg, #16A34A, #22C55E);
-    padding: 70px 20px;
+    padding: clamp(60px, 8vw, 70px) 20px;
     text-align: center;
     color: #ffffff;
 }
 
 .cta h2 {
-    font-size: 30px;
+    font-size: clamp(24px, 4vw, 30px);
     font-weight: 800;
     margin-bottom: 20px;
 }
@@ -804,12 +934,14 @@ nav {
     background: #ffffff;
     border-radius: 999px;
     text-decoration: none;
-    transition: all 0.3s ease;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
-.cta a:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+@media (hover: hover) {
+    .cta a:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    }
 }
 
 /* =====================
@@ -819,7 +951,7 @@ nav {
 .site-footer {
     background: #0F172A;
     color: #CBD5E1;
-    padding: 80px 20px 30px;
+    padding: clamp(60px, 8vw, 80px) 20px 30px;
     font-size: 15px;
 }
 
@@ -852,26 +984,26 @@ nav {
 .footer-col a {
     color: #CBD5E1;
     text-decoration: none;
-    transition: color 0.3s ease;
+    transition: color 0.25s ease;
 }
 
 .footer-col a:hover {
     color: #22C55E;
 }
 
-/* contact icons */
+/* icons */
 .footer-col i {
     color: #22C55E;
     margin-right: 8px;
 }
 
-/* paragraphs */
+/* text */
 .footer-col p {
     margin-bottom: 10px;
     line-height: 1.6;
 }
 
-/* AREAS – да не е тухла */
+/* areas column */
 .footer-col:last-child p {
     font-size: 14px;
     line-height: 1.7;
@@ -888,16 +1020,43 @@ nav {
     color: #94A3B8;
 }
 
-/* responsive */
+/* mobile */
 @media (max-width: 768px) {
-    .site-footer {
-        padding: 60px 20px 25px;
-    }
-
     .footer-container {
         gap: 30px;
     }
 }
+
+@media (min-width: 1024px) {
+
+    .footer-container {
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    /* Обслужвани райони – под всички, 100% */
+    .footer-areas {
+        grid-column: 1 / -1;
+        margin-top: 30px;
+    }
+
+    .footer-areas h3 {
+        text-align: left;
+    }
+
+    /* footer bottom – 100% */
+    .footer-bottom {
+        grid-column: 1 / -1;
+        text-align: center;
+    }
+}
+
+@media (min-width: 1024px) {
+    .footer-container {
+        align-items: start;
+    }
+}
+
+
 
 /* =====================
    COOKIE BANNER
@@ -905,17 +1064,26 @@ nav {
 
 .cookie-banner {
     position: fixed;
+    inset-inline: 20px;          /* вместо left + width */
     bottom: 20px;
-    left: 50%;
-    transform: translateX(-50%);
+    margin-inline: auto;
+
+    max-width: 900px;
     background: #0F172A;
     color: #E5E7EB;
-    width: calc(100% - 40px);
-    max-width: 900px;
+
     border-radius: 14px;
     box-shadow: 0 20px 40px rgba(0,0,0,0.25);
-    z-index: 9999;
+    z-index: 10000;
+
     display: none;
+}
+
+/* safe-area за iOS */
+@supports (padding: max(0px)) {
+    .cookie-banner {
+        bottom: max(20px, env(safe-area-inset-bottom));
+    }
 }
 
 .cookie-content {
@@ -944,16 +1112,17 @@ nav {
     display: flex;
     gap: 12px;
     justify-content: flex-end;
+    flex-wrap: wrap;
 }
 
 .cookie-buttons button {
-    padding: 10px 20px;
+    padding: 10px 22px;
     border-radius: 999px;
     font-size: 14px;
     font-weight: 700;
     border: none;
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: background 0.25s ease, transform 0.2s ease;
 }
 
 /* accept */
@@ -964,6 +1133,7 @@ nav {
 
 #acceptCookies:hover {
     background: #16A34A;
+    transform: translateY(-1px);
 }
 
 /* reject */
@@ -974,10 +1144,10 @@ nav {
 }
 
 #rejectCookies:hover {
-    background: rgba(255,255,255,0.05);
+    background: rgba(255,255,255,0.06);
 }
 
-/* mobile */
+/* MOBILE */
 @media (max-width: 600px) {
     .cookie-buttons {
         flex-direction: column;
@@ -985,47 +1155,57 @@ nav {
     }
 }
 
-/* Floating Call Button – mobile only */
+/* =====================
+   FLOATING CALL (mobile)
+===================== */
+
 .floating-call {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  z-index: 9999;
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
 
-  display: none; /* скрит по подразбиране */
+    z-index: 9000;
 
-  align-items: center;
-  gap: 8px;
+    display: none;
+    align-items: center;
+    gap: 8px;
 
-  background-color: #28a745;
-  color: #fff;
-  padding: 14px 18px;
-  border-radius: 50px;
+    background-color: #28a745;
+    color: #fff;
+    padding: 14px 18px;
+    border-radius: 50px;
 
-  font-size: 16px;
-  font-weight: 600;
-  text-decoration: none;
+    font-size: 16px;
+    font-weight: 600;
+    text-decoration: none;
 
-  box-shadow: 0 0 0 rgba(40, 167, 69, 0.6);
-  animation: pulse 2s infinite;
+    animation: pulse 2s infinite;
 }
 
-/* Пулсиращ ефект */
+/* safe-area */
+@supports (padding: max(0px)) {
+    .floating-call {
+        bottom: max(20px, env(safe-area-inset-bottom));
+    }
+}
+
+/* пулс */
 @keyframes pulse {
-  0% {
-    box-shadow: 0 0 0 0 rgba(40, 167, 69, 0.6);
-  }
-  70% {
-    box-shadow: 0 0 0 18px rgba(40, 167, 69, 0);
-  }
-  100% {
-    box-shadow: 0 0 0 0 rgba(40, 167, 69, 0);
-  }
+    0% { box-shadow: 0 0 0 0 rgba(40,167,69,.6); }
+    70% { box-shadow: 0 0 0 18px rgba(40,167,69,0); }
+    100% { box-shadow: 0 0 0 0 rgba(40,167,69,0); }
 }
 
-/* Само за мобилни */
+/* mobile only */
 @media (max-width: 768px) {
-  .floating-call {
-    display: flex;
-  }
+    .floating-call {
+        display: flex;
+    }
+
+    /* ако cookie е видим → вдигаме call бутона */
+    .cookie-banner[style*="display: block"] ~ .floating-call {
+        bottom: 110px;
+    }
 }
+
+

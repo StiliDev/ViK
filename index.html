@@ -8,7 +8,7 @@
     <meta name="robots" content="index, follow">
      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
      <link rel="stylesheet" href="style/style.css">
-     <link rel="cookiesStyle" href="style/cookies.css">
+     <link rel="stylesheet" href="style/cookies.css">
     
 
      <script type="application/ld+json">
@@ -113,9 +113,9 @@
             </div>
             <ul class="nav-links">
                 <li><a href="index.html">Начало</a></li>
-                 <li><a href="">Аварийни ВиК услуги</a></li>
+                 <li><a href="">Аварийни ВиК услуги </a></li>
                  <li class="dropdown">
-                    <a href="#" class="service-toggle">ВиК Услуги</a>
+                    <a href="#" class="service-toggle">ВиК Услуги <span class="arrow">▾</span> </a>
                     <ul class="dropdown-menu">
                         <li><a href="">Смяна на щрангове</a></li>
                          <li><a href="">ВиК ремонти</a></li>
@@ -125,7 +125,7 @@
                     </ul>
                  </li>
                  <li class="dropdown">
-                    <a href="#" class="service-toggle">ВиК Инсталации</a>
+                    <a href="#" class="service-toggle">ВиК Инсталации  <span class="arrow">▾</span></a>
                     <ul class="dropdown-menu">
                         <li><a href="">Ремонт на канализация</a></li>
                          <li><a href="">Изграждане на водопровод и канализация</a></li>
@@ -135,7 +135,7 @@
                     </ul>
                  </li>
                   <li class="dropdown">
-                    <a href="#" class="service-toggle">Отопление</a>
+                    <a href="#" class="service-toggle">Отопление  <span class="arrow">▾</span></a>
                     <ul class="dropdown-menu">
                         <li><a href="">Ремонт на парно</a></li>
                          <li><a href="">Монтаж на радиатори</a></li>
@@ -193,6 +193,7 @@
             </ul>
 
   </div>
+  <main>
 
   <div class="overlay" id="overlay"></div>
   <section class="hero">
@@ -299,20 +300,32 @@
     <div class="container">
         <h2>Свържете се с нас</h2>
 
-        <form action="#" method="post">
+        <form id="contactForm" action="#" method="post" novalidate>
             <input type="text" placeholder="Вашето име" required>
             <input type="tel" placeholder="Телефон за връзка" required>
             <textarea placeholder="Опишете проблема накратко" required></textarea>
 
             <label class="checkbox">
-                <input type="checkbox" required>
-                Съгласен съм с <a href="privacy.html" target="_blank">Политиката за поверителност</a>
+                <input type="checkbox" id="privacy">
+                <span>
+                    Съгласен съм с
+                    <a href="privacy.html" target="_blank">
+                        Политиката за поверителност
+                    </a>
+                </span>
             </label>
 
-            <button type="submit" class="btn primary">Изпрати запитване</button>
+            <p class="checkbox-error">
+                Моля, потвърдете съгласието си.
+            </p>
+
+            <button type="submit" class="btn primary">
+                Изпрати запитване
+            </button>
         </form>
     </div>
 </section>
+
 
 
 <section class="faq-section">
@@ -390,9 +403,11 @@
 </section>
 
 <section class="cta">
-    <h2>Имате нужда от ВиК услуга или авария?</h2>
-    <a href="tel:+359887457610">Обадете се: 088 745 7610</a>
+    <h2>Имате нужда от ВиК услуга или помощ при авария?</h2>
+    <a href="tel:+359887457610">Обадете се</a>
 </section>
+
+</main>
 
 
 <footer class="site-footer">
@@ -412,7 +427,7 @@
 
         </div>
          <div class="footer-col">
-           
+            <h3 class="visually-hidden">Допълнителни услуги</h3>
             <ul>
                  <li><a href="">Изграждане на водопровод и канализация</a></li>
                           <li><a href="">Изграждане на водомерна шахта</a></li>
@@ -444,7 +459,7 @@
     <p>Понеделник - Неделя: 00:00ч. - 23:59ч.</p>
 </div>
 
-<div class="footer-col">
+<div class="footer-col footer-areas">
     <h3>Обслужвани райони</h3>
     <p>
         Абдовица, Банишора, Бели Брези, Бенковски, Бизнес Парк, Борово, Бъкстон, Витоша, Враждебна, Връбница, Гевгелийски, Гео Милев, Горубляне, Гоце Делчев Дианабад, Димитър Миленков, Дружба, Дървеница, Западен Парк, Иван Вазов, 
