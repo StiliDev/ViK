@@ -77,7 +77,7 @@ nav {
 
 .nav-links a {
     text-decoration: none;
-    font-size: 16px;          /* ⬅️ по-голям текст */
+    font-size: 17px;          /* ⬅️ по-голям текст */
     color: #334155;
     font-weight: 600;
     padding: 10px 6px;        /* ⬅️ по-голяма кликаема зона */
@@ -257,7 +257,7 @@ nav {
     align-items: center;
     background:
         linear-gradient(rgba(15, 23, 42, 0.75), rgba(15, 23, 42, 0.75)),
-        url("../images/hero-vik.jpg") center / cover no-repeat;
+        url("https://plus.unsplash.com/premium_photo-1661884973994-d7625e52631a?q=80&w=2071&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D") center / cover no-repeat;
     color: #ffffff;
 }
 
@@ -428,7 +428,7 @@ nav {
 
 /* TEXT */
 .trust-grid span {
-    font-size: 15px;
+    font-size: 18px;
     font-weight: 600;
     color: #334155;
     line-height: 1.4;
@@ -517,44 +517,128 @@ nav {
     }
 }
 
-/* =====================
-   ABOUT SECTION
-===================== */
-
-.about {
-    background: linear-gradient(135deg, #0F172A, #020617);
-    padding: clamp(70px, 9vw, 90px) 20px;
-    color: #ffffff;
+/* ===== ABOUT HOME ===== */
+.about-home {
+  padding: 90px 20px;
+  background: #f8f9fb;
 }
 
-.about .container {
-    max-width: 900px;
+.about-home-header {
+  max-width: 700px;
+  margin-bottom: 50px;
+}
+
+.about-home-header h2 {
+  font-size: clamp(30px, 4vw, 42px);
+  margin-bottom: 12px;
+  color: #111;
+}
+
+.about-home-header p {
+  font-size: 17px;
+  line-height: 1.6;
+  color: #555;
+}
+
+/* ===== MINI TIMELINE ===== */
+.about-home-timeline {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+}
+
+.about-step {
+  background: #fff;
+  padding: 35px 30px;
+  border-radius: 18px;
+  text-align: left;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
+  position: relative;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.about-step::before {
+  content: "";
+  position: absolute;
+  top: -6px;
+  left: 30px;
+  width: 40px;
+  height: 4px;
+  background: #16A34A;
+  border-radius: 2px;
+}
+
+.step-year {
+  font-size: 14px;
+  font-weight: 700;
+  color: #16A34A;
+  letter-spacing: 1px;
+}
+
+.about-step h3 {
+  font-size: 20px;
+  margin: 10px 0;
+  color: #111;
+}
+
+.about-step p {
+  font-size: 15px;
+  color: #555;
+  line-height: 1.5;
+}
+
+/* Highlight current */
+.about-step.highlight {
+  background: linear-gradient(135deg, #16A34A, #16A34A);
+  color: #111;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.about-step.highlight h3,
+.about-step.highlight p,
+.about-step.highlight .step-year {
+  color: #ffffff;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 992px) {
+  .about-home-timeline {
+    grid-template-columns: 1fr;
+  }
+
+  .about-step {
+    max-width: 500px;
     margin: 0 auto;
+  }
+}
+.about-step:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.18);
+}
+
+/* Highlight card – по-фин ефект */
+.about-step.highlight:hover {
+  transform: translateY(-12px) scale(1.02);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .about-step:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.18);
+  }
+}
+
+
+@media (max-width: 600px) {
+  .about-home {
+    padding: 70px 15px;
+  }
+
+  .about-home-header {
     text-align: center;
+  }
 }
 
-.about h2 {
-    font-size: clamp(26px, 4vw, 32px);
-    font-weight: 800;
-    margin-bottom: 30px;
-    position: relative;
-}
-
-.about h2::after {
-    content: "";
-    display: block;
-    width: 70px;
-    height: 4px;
-    background: #22C55E;
-    margin: 20px auto 0;
-    border-radius: 3px;
-}
-
-.about p {
-    font-size: 17px;
-    line-height: 1.8;
-    color: #E5E7EB;
-}
 
 /* =====================
    AREAS SECTION
@@ -913,10 +997,10 @@ nav {
 ===================== */
 
 .cta {
-    background: linear-gradient(135deg, #16A34A, #22C55E);
+    background: linear-gradient(135deg, #ffffff, #ffffff);
     padding: clamp(60px, 8vw, 70px) 20px;
     text-align: center;
-    color: #ffffff;
+    color: #000000;
 }
 
 .cta h2 {
@@ -930,8 +1014,8 @@ nav {
     padding: 16px 34px;
     font-size: 20px;
     font-weight: 800;
-    color: #16A34A;
-    background: #ffffff;
+    color: #ffffff;
+    background:  #16A34A;
     border-radius: 999px;
     text-decoration: none;
     transition: transform 0.25s ease, box-shadow 0.25s ease;
