@@ -168,6 +168,21 @@ nav {
     cursor: pointer;
 }
 
+@media (min-width: 993px) {
+  .dropdown-menu {
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px);
+  }
+
+  .dropdown.active .dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+}
+
+
 
 
 /* =====================
@@ -276,10 +291,11 @@ nav {
     transition: all 0.25s ease;
 }
 
-.side-menu.a.active{
-    background: rgba(34,197,94,0,2);
+.side-menu a.active {
+    background: rgba(34,197,94,0.15);
     color: #22C55E;
 }
+
 
 .side-menu a:hover {
     background: rgba(34,197,94,0.15);
@@ -298,6 +314,7 @@ nav {
     font-size: 16px;
     padding: 14px 16px;
     background: rgba(255,255,255,0.03);
+    color: #ffffff;
 }
 
 /* ACTIVE SUBMENU */
@@ -327,29 +344,29 @@ nav {
     transform: rotate(180deg);
 }
 
-/* CTA BUTTON (optional) */
-.side-menu .menu-cta {
-    margin-top: 30px;
+
+
+/* === MOBILE DROPDOWN VISIBILITY FIX === */
+.side-menu .dropdown-menu {
+  opacity: 1;
+  visibility: visible;
+  transform: none;
 }
 
-.side-menu .menu-cta a {
-    background: #22C55E;
-    color: #ffffff;
-    justify-content: center;
-    font-weight: 700;
-}
-
-.side-menu .menu-cta a:hover {
-    background: #16A34A;
+/* === MOBILE SUBMENU RESET (FIX) === */
+.side-menu .dropdown-menu {
+    position: static;
+    opacity: 1;
+    visibility: visible;
     transform: none;
+    box-shadow: none;
+    background: transparent;
+    padding: 8px 0 0;
 }
 
-/* RESPONSIVE NAV */
-@media (min-width: 993px) {
-    .side-menu {
-        display: none;
-    }
-}
+
+
+
 
 
 /* =====================
@@ -1397,5 +1414,133 @@ nav {
         bottom: 110px;
     }
 }
+
+/* =====================
+   АВАРЙНИ УСЛУГИ
+===================== */
+.avarini-hero {
+  padding: 120px 20px 100px;
+  background:
+    radial-gradient(circle at top left, rgba(239,68,68,0.25), transparent 60%),
+    linear-gradient(135deg, #020617, #0F172A);
+  color: #E5E7EB;
+}
+
+.avarini-hero-content {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.avarini-hero h1 {
+  font-size: clamp(32px, 5vw, 52px);
+  font-weight: 800;
+  margin-bottom: 20px;
+}
+
+.avarini-hero-text {
+  font-size: 18px;
+  line-height: 1.7;
+  max-width: 640px;
+  color: #CBD5E1;
+}
+.avarini-hero-contact {
+  margin-top: 24px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.avarini-hero-contact i {
+  color: #EF4444;
+}
+
+.avarini-hero-contact a {
+  color: #F8FAFC;
+  text-decoration: none;
+}
+
+.avarini-hero-buttons {
+  margin-top: 36px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.avarini-services {
+  padding: 90px 20px;
+  background: #020617;
+  color: #E5E7EB;
+}
+
+.avarini-services h2 {
+  text-align: center;
+  margin-bottom: 50px;
+  font-size: 32px;
+  font-weight: 800;
+}
+
+.avarini-services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 22px;
+}
+
+.avarini-service-card {
+  background: rgba(255,255,255,0.04);
+  border-radius: 16px;
+  padding: 22px 24px;
+  font-weight: 600;
+  line-height: 1.5;
+  transition: all 0.25s ease;
+  border: 1px solid rgba(255,255,255,0.06);
+}
+
+.avarini-service-card:hover {
+  background: rgba(239,68,68,0.12);
+  border-color: rgba(239,68,68,0.35);
+  transform: translateY(-4px);
+}
+
+.cta-map {
+  padding: 90px 20px;
+  background: linear-gradient(135deg, #0F172A, #020617);
+  color: #E5E7EB;
+}
+
+.cta-map-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  align-items: center;
+}
+
+.avarini-cta-content h2 {
+  font-size: 34px;
+  font-weight: 800;
+  margin-bottom: 16px;
+}
+
+.avarini-cta-content p {
+  font-size: 18px;
+  line-height: 1.6;
+  margin-bottom: 28px;
+  color: #CBD5E1;
+}
+
+.cta-map-embed iframe {
+  width: 100%;
+  height: 320px;
+  border: none;
+  border-radius: 16px;
+}
+
+@media (max-width: 768px) {
+  .cta-map-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
 
 
