@@ -93,6 +93,23 @@ nav {
 }
 
 /* =====================
+   MOBILE NAV FIX
+===================== */
+@media (max-width: 992px) {
+
+  /* скриваме desktop менюто */
+  .nav-links {
+    display: none !important;
+  }
+
+  /* показваме hamburger */
+  .hamburger {
+    display: flex !important;
+  }
+}
+
+
+/* =====================
    DROPDOWN
 ===================== */
 
@@ -171,80 +188,169 @@ nav {
     border-radius: 2px;
 }
 
+/* HAMBURGER ANIMATION */
+.hamburger span {
+  transition: all 0.3s ease;
+}
+
+.hamburger.active span:nth-child(1) {
+  transform: translateY(8px) rotate(45deg);
+}
+
+.hamburger.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+  transform: translateY(-8px) rotate(-45deg);
+}
+
+
 /* =====================
-   MOBILE MENU
+   MODERN MOBILE MENU
 ===================== */
 
 .side-menu {
     position: fixed;
-    top: 0;
-    right: -100%;
-    width: 280px;
-    height: 100%;
-    background: #ffffff;
+    inset: 0;
+    background: linear-gradient(135deg, #020617, #0F172A);
     z-index: 2000;
-    padding: 30px 20px;
-    transition: right 0.3s ease;
-    box-shadow: -10px 0 30px rgba(0,0,0,0.15);
+    padding: 80px 24px 40px;
+    transform: translateX(100%);
+    transition: transform 0.35s ease;
     overflow-y: auto;
 }
 
+/* ACTIVE */
 .side-menu.active {
-    right: 0;
+    transform: translateX(0);
 }
 
+/* CLOSE BUTTON */
+.close-btn {
+    position: absolute;
+    top: 18px;
+    right: 20px;
+    background: rgba(255,255,255,0.08);
+    border: none;
+    color: #ffffff;
+    font-size: 28px;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.25s ease;
+}
+
+.close-btn:hover {
+    background: rgba(255,255,255,0.15);
+    transform: rotate(90deg);
+}
+
+/* LIST */
 .side-menu ul {
     list-style: none;
     padding: 0;
+    margin: 0;
 }
 
+/* LINKS */
 .side-menu li {
     margin-bottom: 12px;
 }
 
 .side-menu a {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 18px;
+    border-radius: 14px;
+    font-size: 18px;
+    font-weight: 600;
+    color: #E5E7EB;
     text-decoration: none;
-    font-size: 16px;
-    color: #0F172A;
-    font-weight: 500;
+    background: rgba(255,255,255,0.04);
+    transition: all 0.25s ease;
 }
 
-/* CLOSE BTN */
-.close-btn {
-    background: none;
-    border: none;
-    font-size: 32px;
-    cursor: pointer;
-    position: absolute;
-    top: 15px;
-    right: 20px;
+.side-menu.a.active{
+    background: rgba(34,197,94,0,2);
+    color: #22C55E;
 }
 
-/* MOBILE DROPDOWN */
+.side-menu a:hover {
+    background: rgba(34,197,94,0.15);
+    color: #22C55E;
+    transform: translateX(4px);
+}
+
+/* SUBMENU */
 .side-menu .dropdown-menu {
-    display: none;
-    position: static;
-    box-shadow: none;
-    transform: none;
-    opacity: 1;
-    visibility: visible;
-    padding-left: 10px;
+   max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.35s ease;
 }
 
+.side-menu .dropdown-menu a {
+    font-size: 16px;
+    padding: 14px 16px;
+    background: rgba(255,255,255,0.03);
+}
+
+/* ACTIVE SUBMENU */
 .side-menu .has-submenu.active .dropdown-menu {
-    display: block;
+     max-height: 500px;
+}
+
+.side-menu::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: rgba(2,6,23,0.6);
+  backdrop-filter: blur(6px);
+  z-index: -1;
+}
+
+
+/* SUBMENU ARROW */
+.has-submenu > a::after {
+    content: "▾";
+    font-size: 14px;
+    opacity: 0.6;
+    transition: transform 0.3s ease;
+}
+
+.has-submenu.active > a::after {
+    transform: rotate(180deg);
+}
+
+/* CTA BUTTON (optional) */
+.side-menu .menu-cta {
+    margin-top: 30px;
+}
+
+.side-menu .menu-cta a {
+    background: #22C55E;
+    color: #ffffff;
+    justify-content: center;
+    font-weight: 700;
+}
+
+.side-menu .menu-cta a:hover {
+    background: #16A34A;
+    transform: none;
 }
 
 /* RESPONSIVE NAV */
-@media (max-width: 992px) {
-    .nav-links {
+@media (min-width: 993px) {
+    .side-menu {
         display: none;
     }
-
-    .hamburger {
-        display: flex;
-    }
 }
+
 
 /* =====================
    HERO SECTION
