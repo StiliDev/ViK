@@ -1,0 +1,238 @@
+/* ================================
+   REMONTI СТРАНИЦА – ЧИСТ STYLING
+================================ */
+
+.remonti {
+    font-family: 'Inter', sans-serif;
+    color: #1c1c1c;
+    line-height: 1.6;
+}
+
+/* ===== HERO ===== */
+.remonti-hero {
+    background: url('https://images.ctfassets.net/5kq8dse7hipf/5I2mdELDbwYexh7ioP6DW8/c580c6b1bb3f64a3032bfbc91299ab54/plumber-using-wrench.jpg') 
+        no-repeat center center/cover;
+    text-align: center;
+    padding: 120px 20px;
+    position: relative;
+    color: #fff;
+}
+
+.remonti-hero h1 {
+    font-size: clamp(2rem, 5vw, 3rem);
+    font-weight: 700;
+    line-height: 1.2;
+    text-shadow: 1px 1px 6px rgba(0,0,0,0.4);
+}
+
+/* ===== DUO СЕКЦИЯ ===== */
+.remonti-duo .container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+    padding: 80px 5%;
+    align-items: start;
+    background-color: #f1f5f9;
+}
+
+.remonti-content h2 {
+    font-size: 2.2rem;
+    margin-bottom: 30px;
+}
+
+/* Списък с линкове */
+.remonti-list {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 30px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px 25px;
+}
+
+.remonti-list li {
+    position: relative;
+    padding-left: 28px;
+    font-size: 18px;
+}
+
+.remonti-list li::before {
+    content: "✔";
+    position: absolute;
+    left: 0;
+    top: 0;
+    color: #16a34a; /* зелена check икона */
+    font-weight: 700;
+}
+
+.remonti-list li a {
+    text-decoration: none;
+    color: #0F172A; /* тъмно за четене */
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+.remonti-list li a:hover {
+    color: #16a34a;
+    text-decoration: underline;
+}
+
+.remonti-content p {
+    font-size: 17px;
+    margin-bottom: 20px;
+}
+
+.remonti-content p.warning {
+    background: #fef2f2;
+    color: #b91c1c;
+    padding: 18px 20px;
+    border-left: 5px solid #ff0000;
+    border-radius: 8px;
+    font-weight: 500;
+}
+
+.remonti-content .btn.primary {
+    display: inline-block;
+    padding: 14px 35px;
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: 25px;
+    background: #32a852;
+    color: #fff;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.remonti-content .btn.primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 18px rgba(0,0,0,0.15);
+}
+
+/* Снимка в дуо секцията */
+.remonti-picture img {
+    width: 100%;
+    border-radius: 16px;
+    object-fit: cover;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+
+/* ===== TRUST ===== */
+.remonti-trust {
+    background: #ffffff; /* светъл фон */
+    padding: clamp(80px, 10vw, 120px) 5%;
+}
+
+.remonti-trust h2 {
+    font-size: clamp(28px, 4vw, 36px);
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+.remonti-trust p {
+    font-size: 17px;
+    margin-bottom: 30px;
+    max-width: 900px;
+    color: #334155;
+}
+
+/* Trust cards */
+.trust-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.trust-list li {
+    background: #f9fafb; /* супер светъл card фон */
+    padding: 22px 24px;
+    border-radius: 16px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+}
+
+.trust-list li strong {
+    display: block;
+    font-size: 18px;
+    margin-bottom: 8px;
+    color: #0F172A;
+}
+
+.trust-list li p {
+    font-size: 16px;
+    color: #334155;
+    line-height: 1.5;
+}
+
+/* ===== CTA ===== */
+.remonti-cta {
+    background: #f1f5f9; /* светъл фон */
+    color: #0f172a;
+    padding: clamp(60px, 8vw, 100px) 1.5rem;
+    text-align: center;
+}
+
+.remonti-cta h2 {
+    font-size: clamp(2rem, 4vw, 2.6rem);
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+.remonti-cta p {
+    font-size: 1.1rem;
+    margin-bottom: 1.8rem;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+    color: #334155;
+}
+
+.cta-points {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 25px;
+}
+
+.cta-points li {
+    font-size: 17px;
+    margin-bottom: 10px;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 1024px) {
+    .remonti-duo .container {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    .remonti-list {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .remonti-hero {
+        padding: 80px 20px;
+    }
+
+    .remonti-content h2 {
+        font-size: 1.8rem;
+    }
+
+    .remonti-list li,
+    .remonti-content p,
+    .trust-list li p,
+    .cta-points li {
+        font-size: 16px;
+    }
+
+    .remonti-trust {
+        padding: 60px 5%;
+    }
+
+    .remonti-cta {
+        padding: 50px 1rem;
+    }
+}
