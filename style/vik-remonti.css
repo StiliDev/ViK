@@ -8,21 +8,61 @@
     line-height: 1.6;
 }
 
-/* ===== HERO ===== */
+/* ===== HERO – MATCHING SITE STYLE ===== */
 .remonti-hero {
-    background: url('https://images.ctfassets.net/5kq8dse7hipf/5I2mdELDbwYexh7ioP6DW8/c580c6b1bb3f64a3032bfbc91299ab54/plumber-using-wrench.jpg') 
-        no-repeat center center/cover;
-    text-align: center;
-    padding: 120px 20px;
-    position: relative;
-    color: #fff;
+    background: linear-gradient(180deg, #030328, #1b1edb);
+    padding: clamp(90px, 10vw, 130px) 20px;
 }
 
+.remonti-hero-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 32px;
+    text-align: center;
+}
+
+
 .remonti-hero h1 {
-    font-size: clamp(2rem, 5vw, 3rem);
+    font-size: clamp(32px, 5vw, 46px);
+    font-weight: 800;
+    color: #ffffff;
+    line-height: 1.15;
+    position: relative;
+    padding-left: 22px;
+text-align: center;
+}
+
+
+.hero-phone {
+    font-size: clamp(18px, 3vw, 22px);
     font-weight: 700;
-    line-height: 1.2;
-    text-shadow: 1px 1px 6px rgba(0,0,0,0.4);
+    color: #ffffff;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    
+}
+
+.hero-phone i {
+    color: #10ec68;
+    font-size: 26px;
+}
+
+
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 600px) {
+    .remonti-hero {
+        padding: 80px 16px;
+    }
+
+    .remonti-hero h1 {
+        padding-left: 16px;
+    }
 }
 
 /* ===== DUO СЕКЦИЯ ===== */
@@ -235,4 +275,167 @@
     .remonti-cta {
         padding: 50px 1rem;
     }
+}
+
+/* =====================
+   UNIVERSAL CTA
+===================== */
+
+.cta-universal {
+    padding: clamp(60px, 8vw, 90px) 20px;
+    background: linear-gradient(135deg, #ffffff, #ffffff);
+}
+
+.cta-box {
+    max-width: 900px;
+    margin: 0 auto;
+    background: #ffffff;
+    border-radius: 22px;
+    padding: clamp(40px, 6vw, 60px);
+    text-align: center;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.08);
+}
+
+/* TITLE */
+.cta-box h2 {
+    font-size: clamp(26px, 4vw, 34px);
+    font-weight: 800;
+    color: #000000;
+    margin-bottom: 16px;
+}
+
+/* TEXT */
+.cta-box p {
+    font-size: 17px;
+    line-height: 1.6;
+    color: #475569;
+    max-width: 650px;
+    margin: 0 auto 36px;
+}
+
+/* PHONE BUTTON */
+.cta-phone {
+    display: inline-flex;
+    align-items: center;
+    gap: 14px;
+    padding: 18px 36px;
+    background: #16A34A;
+    color: #ffffff;
+    font-size: clamp(18px, 4vw, 22px);
+    font-weight: 800;
+    border-radius: 999px;
+    text-decoration: none;
+    box-shadow: 0 15px 30px rgba(22,163,74,0.35);
+    transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
+}
+
+.cta-phone i {
+    font-size: 20px;
+}
+
+/* HOVER */
+@media (hover: hover) {
+    .cta-phone:hover {
+        background: #15803D;
+        transform: translateY(-3px);
+        box-shadow: 0 22px 45px rgba(22,163,74,0.45);
+    }
+}
+
+/* MOBILE TWEAK */
+@media (max-width: 480px) {
+    .cta-box p {
+        font-size: 16px;
+    }
+
+    .cta-phone {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+/* Списък с линкове */
+.kanali-list {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 30px;
+    display: grid;
+    grid-template-columns: 1fr ;
+    gap: 12px 25px;
+}
+
+.kanali-list li {
+    position: relative;
+    padding-left: 28px;
+    font-size: 24px;
+}
+
+.kanali-list li::before {
+    content: "✔";
+    position: absolute;
+    left: 0;
+    top: 0;
+    color: #16a34a; /* зелена check икона */
+    font-weight: 900;
+    font-size: 24px;
+}
+
+.kanali-list li a {
+    text-decoration: none;
+    color: #0F172A; /* тъмно за четене */
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+.kanali-list li a:hover {
+    color: #16a34a;
+    text-decoration: underline;
+}
+
+/* =====================
+   KANALI INFO
+===================== */
+
+.kanali-info {
+    background: #F8FAFC;
+    padding: clamp(60px, 8vw, 90px) 20px;
+}
+
+.kanali-info .container {
+    max-width: 1300px;
+    margin: 0 auto;
+}
+
+.kanali-info h2 {
+    font-size: clamp(26px, 4vw, 32px);
+    font-weight: 800;
+    color: #0F172A;
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+.kanali-steps {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 30px;
+}
+
+.kanali-step {
+    background: #ffffff;
+    padding: 28px 26px;
+    border-radius: 18px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.06);
+}
+
+.kanali-step h3 {
+    font-size: 18px;
+    font-weight: 800;
+    color: #16A34A;
+    margin-bottom: 12px;
+}
+
+.kanali-step p {
+    font-size: 16px;
+    line-height: 1.6;
+    color: #475569;
 }

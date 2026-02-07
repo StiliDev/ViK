@@ -380,7 +380,7 @@ nav {
     align-items: center;
     background:
             linear-gradient(rgba(31, 31, 31, 0.75), rgba(31, 31, 31, 0.75)),
-        url("https://plus.unsplash.com/premium_photo-1661884973994-d7625e52631a?q=80&w=2071&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D") center / cover no-repeat;
+        url("https://plus.unsplash.com/premium_photo-1661884973994-d7625e52631a?q=80&w=2071&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D") no-repeat center center/ cover;
     color: #ffffff;
 }
 
@@ -1263,6 +1263,18 @@ nav {
     }
 }
 
+/* FIX: background zoom / squash on mobile */
+@media (max-width: 768px) {
+    .hero {
+        background-position: center top;
+        background-size: cover;
+    }
+
+    /* ако имаш hover ефект някъде по hero / section */
+    .hero:hover {
+        transform: none !important;
+    }
+}
 
 
 /* =====================
@@ -1414,6 +1426,97 @@ nav {
         bottom: 110px;
     }
 }
+
+@media (max-width: 1024px) {
+
+    .hero {
+        min-height: auto;
+        padding: 60px 0;
+    }
+
+    .hero-content {
+        margin-left: 0;
+        max-width: 100%;
+        padding: 60px 30px;
+    }
+
+    .about-home-timeline {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+
+    .hero h1 {
+        font-size: 30px;
+    }
+
+    .hero h2 {
+        font-size: 16px;
+    }
+
+    .hero-text {
+        font-size: 15px;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .btn {
+        text-align: center;
+        width: 100%;
+    }
+
+    .trust-grid {
+        gap: 18px;
+    }
+
+    .trust-grid > div {
+        padding: 20px;
+    }
+
+    .service-grid {
+        gap: 22px;
+    }
+
+    .about-home-timeline {
+        grid-template-columns: 1fr;
+    }
+
+    .areas p {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 480px) {
+
+    .hero-content {
+        padding: 50px 18px;
+    }
+
+    .hero-contact {
+        font-size: 18px;
+    }
+
+    .trust h2,
+    .services h2,
+    .areas h2 {
+        font-size: 24px;
+    }
+
+    .service-grid article {
+        padding: 30px 22px;
+    }
+
+    .about-step {
+        padding: 28px 22px;
+    }
+}
+
+
+
 
 /* Hero секция */
 .avarini-hero {
