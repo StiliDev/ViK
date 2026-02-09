@@ -149,6 +149,12 @@ text-align: center;
     box-shadow: 0 6px 18px rgba(0,0,0,0.15);
 }
 
+.remonti-content a{
+     color: #16A34A;
+    font-weight: 700;
+    text-decoration: none;
+}
+
 /* Снимка в дуо секцията */
 .remonti-picture img {
     width: 100%;
@@ -484,3 +490,7 @@ text-align: center;
     color: #16A34A;
     margin-bottom: 20px;
 }
+
+
+
+
