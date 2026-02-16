@@ -53,15 +53,17 @@ nav {
     justify-content: space-between;
 }
 
-/* LOGO */
 .logo {
-    font-size: 22px;
-    font-weight: 700;
-    color: #0F172A;
-    text-decoration: none;
-    letter-spacing: 1px;
-    white-space: nowrap;
+    display: flex;
+    align-items: center;
 }
+
+.logo img {
+    height: 56px;
+    width: auto;
+    display: block;
+}
+
 
 /* NAV LINKS */
 .nav-links {
@@ -1529,24 +1531,7 @@ nav {
     position: relative;
 }
 
-.avarini-hero-content {
-    max-width: 750px;
-    margin: 0 auto;
-    animation: fadeIn 1s ease forwards;
-}
 
-.avarini-hero h1 {
-    font-size: 3rem;
-    margin-bottom: 20px;
-    line-height: 1.2;
-    font-weight: 700;
-}
-
-.avarini-hero-text {
-    font-size: 1.2rem;
-    margin-bottom: 30px;
-    line-height: 1.6;
-}
 
 .avarini-hero-contact {
     font-size: 1.4rem;
@@ -1671,6 +1656,78 @@ nav {
 .services-text p {
     margin-bottom: 15px;
     line-height: 1.6;
+}
+
+
+.why-floating {
+    background: #ffffff;
+    padding: 120px 20px;
+    font-family: Arial, sans-serif;
+}
+
+.why-floating-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.why-floating-title {
+    font-size: 2.4em;
+    margin-bottom: 15px;
+    color: #222;
+}
+
+.why-floating-subtitle {
+    max-width: 700px;
+    margin: 0 auto 80px;
+    font-size: 1.1em;
+    color: #666;
+    line-height: 1.6;
+}
+
+.why-floating-cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 40px;
+}
+
+.floating-card {
+    background: #ffffff;
+    padding: 50px 35px;
+    border-radius: 16px;
+    width: 320px;
+    box-shadow: 0 25px 50px rgba(0,0,0,0.08);
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.floating-card:hover {
+    transform: translateY(-12px);
+    box-shadow: 0 35px 65px rgba(0,0,0,0.12);
+}
+
+.floating-icon {
+    margin-bottom: 25px;
+    color: #32a852;
+    
+}
+
+.floating-icon svg {
+    width: 60px;
+    height: 60px;
+}
+
+.floating-card h4 {
+    font-size: 1.3em;
+    margin-bottom: 15px;
+    color: #32a852;
+    
+}
+
+.floating-card p {
+    font-size: 1em;
+    line-height: 1.7;
+    color: #555;
 }
 
 

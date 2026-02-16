@@ -1,0 +1,84 @@
+.service-areas {
+    background: #ffffff;
+    padding: 100px 20px;
+    font-family: Arial, sans-serif;
+}
+
+.service-areas-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.areas-title {
+    font-size: 2.6em;
+    margin-bottom: 15px;
+    color: #222;
+}
+
+.areas-subtitle {
+    max-width: 750px;
+    margin: 0 auto 70px;
+    font-size: 1.15em;
+    color: #666;
+    line-height: 1.7;
+}
+
+.areas-block {
+    margin-bottom: 60px;
+}
+
+.areas-block h2 {
+    font-size: 1.8em;
+    margin-bottom: 20px;
+    color: #1b952b;
+}
+
+.areas-block p {
+    font-size: 1.1em;
+    line-height: 1.8;
+    color: #555;
+    max-width: 900px;
+    margin: 0 auto 15px;
+}
+
+.areas-highlight {
+    font-weight: 600;
+    color: #222;
+}
+
+.areas-map {
+    margin: 70px 0;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.08);
+}
+
+.areas-cta {
+    margin-top: 60px;
+}
+
+.areas-cta h3 {
+    font-size: 1.6em;
+    margin-bottom: 15px;
+}
+
+.areas-cta p {
+    margin-bottom: 25px;
+    color: #555;
+}
+
+.areas-btn {
+    display: inline-block;
+    padding: 15px 35px;
+    background: #007bff;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: 600;
+    transition: background 0.3s ease;
+}
+
+.areas-btn:hover {
+    background: #0056b3;
+}
