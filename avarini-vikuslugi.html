@@ -119,6 +119,92 @@
 }
 </script>
 
+<style>
+  .avarini-hero {
+    position: relative;
+    min-height: 90vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #fff;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.avarini-hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:  url('images/IMG_20260131_220454_239.webp') center center / cover no-repeat;
+    z-index: -2;
+}
+
+.avarini-hero::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.65);
+    z-index: -1;
+}
+
+.avarini-hero p {
+    font-size: 20px;
+    opacity: 0.9;
+    max-width: 750px;
+    margin: 0 auto 25px auto;
+}
+
+.avarini-hero h1 {
+    font-size: 56px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    margin-bottom: 20px;
+}
+
+.avarini-hero-contact {
+    font-size: 1.4rem;
+    margin-bottom: 20px;
+}
+
+.avarini-hero-contact i {
+    margin-right: 10px;
+    color: #32a852; /* зелена икона за телефон */
+}
+
+.avarini-hero-contact a {
+    color: #32a852;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+/* Hero бутони - зелени и закръглени */
+.avarini-hero-buttons .btn {
+    padding: 14px 35px;
+    margin: 5px;
+    font-size: 1rem;
+    border-radius: 25px; /* леко закръглени */
+    text-decoration: none;
+    display: inline-block;
+    transition: all 0.3s ease;
+    font-weight: 600;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.btn.primary {
+    background-color: #32a852;
+    color: #fff;
+}
+
+.btn.primary:hover {
+    background-color: #28a745;
+    transform: translateY(-3px);
+}
+
+.avarini-hero-content {
+    padding: 40px;
+}
+</style>
      
 </head>
 <body class="avarini-page">
@@ -219,7 +305,7 @@
   </div>
 
 <main>
-<div class="overlay" id="overlay"></div>
+
 <section class="avarini-hero">
     <div class="avarini-hero-content fade-in">
         <h1>Аварийни ВиК услуги 24/7 в София</h1>

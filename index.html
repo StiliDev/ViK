@@ -54,6 +54,107 @@
 }
 </script>
 
+<style>
+  /* =====================
+   HERO SECTION
+===================== */
+
+.hero {
+    position: relative;
+    min-height: 90vh;
+    display: flex;
+    align-items: center;
+    background:
+            linear-gradient(rgba(31, 31, 31, 0.75), rgba(31, 31, 31, 0.75)),
+        url("images/file_00000000a3d07246811864a17a1b49f3.webp") no-repeat center center/ cover;
+    color: #ffffff;
+}
+
+.hero-content {
+    max-width: 720px;
+    margin-left: clamp(20px, 6vw, 80px);
+    padding: 80px 20px;
+}
+
+.hero h1 {
+    font-size: clamp(32px, 4vw, 48px);
+    font-weight: 800;
+    line-height: 1.2;
+    margin-bottom: 16px;
+}
+
+.hero h2 {
+    font-size: 18px;
+    font-weight: 500;
+    color: #ffffff;
+    margin-bottom: 20px;
+}
+
+.hero-text {
+    font-size: 16px;
+    line-height: 1.6;
+    color: #ffffff;
+    margin-bottom: 30px;
+}
+
+/* PHONE */
+.hero-contact {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 28px;
+}
+
+.hero-contact i {
+    color: #16A34A;
+}
+
+.hero-contact a {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+
+
+/* FADE IN */
+.fade-in {
+    animation: fadeInUp 0.9s ease forwards;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* HERO MOBILE */
+@media (max-width: 768px) {
+    .hero {
+        min-height: 85vh;
+    }
+
+    .hero-content {
+        margin-left: 0;
+        padding-top: 110px;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+    }
+
+    .btn {
+        text-align: center;
+        width: 100%;
+    }
+}
+</style>
 
 <script type="application/ld+json">
 {
@@ -151,7 +252,7 @@
           <div class="navbar-logo">
             <a class="logo" href="index.html"> 
               
-              <img src="images/logo.png" alt="Софттерм ЕООД">
+              <img src="images/logo.webp" alt="Софттерм ЕООД">
             </a>
             </div>
             <div class="hamburger" id="hamburger">
@@ -468,7 +569,7 @@
         <h2>ВиК услуги в София и София-град</h2>
 
         <p>
-            <strong>ViK</strong> предлага професионални ВиК услуги в София –
+            <strong>Кърти-Чисти-Извозва</strong> предлага професионални ВиК услуги в София –
             ВиК проектиране, изграждане на водопроводни и канализационни инсталации,
             изграждане и ремонт на локално парно, монтаж на радиатори,
             аварийни ВиК ремонти, къртене, почистване и извозване.
@@ -559,7 +660,7 @@
 </div>
 
 <div class="footer-bottom">
-    <p>&copy; 2026 "ViK" ЕООД | Всички права запазени.</p>
+    <p>&copy; 2026 "Кърти-Чисти-Извозва" ЕООД | Всички права запазени.</p>
 </div>
 
     </div>

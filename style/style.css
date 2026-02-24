@@ -400,71 +400,7 @@ header {
     padding: 8px 0 0;
 }
 
-
-
-
-
-
-/* =====================
-   HERO SECTION
-===================== */
-
-.hero {
-    position: relative;
-    min-height: 90vh;
-    display: flex;
-    align-items: center;
-    background:
-            linear-gradient(rgba(31, 31, 31, 0.75), rgba(31, 31, 31, 0.75)),
-        url("https://plus.unsplash.com/premium_photo-1661884973994-d7625e52631a?q=80&w=2071&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D") no-repeat center center/ cover;
-    color: #ffffff;
-}
-
-.hero-content {
-    max-width: 720px;
-    margin-left: clamp(20px, 6vw, 80px);
-    padding: 80px 20px;
-}
-
-.hero h1 {
-    font-size: clamp(32px, 4vw, 48px);
-    font-weight: 800;
-    line-height: 1.2;
-    margin-bottom: 16px;
-}
-
-.hero h2 {
-    font-size: 18px;
-    font-weight: 500;
-    color: #ffffff;
-    margin-bottom: 20px;
-}
-
-.hero-text {
-    font-size: 16px;
-    line-height: 1.6;
-    color: #ffffff;
-    margin-bottom: 30px;
-}
-
-/* PHONE */
-.hero-contact {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    font-size: 20px;
-    font-weight: 700;
-    margin-bottom: 28px;
-}
-
-.hero-contact i {
-    color: #16A34A;
-}
-
-.hero-contact a {
-    color: #ffffff;
-    text-decoration: none;
-}
+/*INDEX*/
 
 /* BUTTONS */
 .hero-buttons {
@@ -483,7 +419,7 @@ header {
 }
 
 .btn.primary {
-    background: #16A34A;
+    background: #0B652D;
     color: #ffffff;
 }
 
@@ -499,43 +435,6 @@ header {
 
 .btn.secondary:hover {
     background: rgba(255,255,255,0.1);
-}
-
-/* FADE IN */
-.fade-in {
-    animation: fadeInUp 0.9s ease forwards;
-}
-
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(30px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-/* HERO MOBILE */
-@media (max-width: 768px) {
-    .hero {
-        min-height: 85vh;
-    }
-
-    .hero-content {
-        margin-left: 0;
-        padding-top: 110px;
-    }
-
-    .hero-buttons {
-        flex-direction: column;
-    }
-
-    .btn {
-        text-align: center;
-        width: 100%;
-    }
 }
 
 /* =====================
@@ -1551,62 +1450,7 @@ header {
     }
 }
 
-
-
-
-/* Hero секция */
-.avarini-hero {
-    background: 
-      linear-gradient(rgba(31, 31, 31, 0.75), rgba(31, 31, 31, 0.75)),
-    url('../images/IMG_20260131_220454_239.jpg') no-repeat center center/cover;
-    color: #fff;
-    text-align: center;
-    padding: 100px 20px;
-    position: relative;
-}
-
-
-
-.avarini-hero-contact {
-    font-size: 1.4rem;
-    margin-bottom: 20px;
-}
-
-.avarini-hero-contact i {
-    margin-right: 10px;
-    color: #32a852; /* зелена икона за телефон */
-}
-
-.avarini-hero-contact a {
-    color: #32a852;
-    text-decoration: none;
-    font-weight: 600;
-}
-
-/* Hero бутони - зелени и закръглени */
-.avarini-hero-buttons .btn {
-    padding: 14px 35px;
-    margin: 5px;
-    font-size: 1rem;
-    border-radius: 25px; /* леко закръглени */
-    text-decoration: none;
-    display: inline-block;
-    transition: all 0.3s ease;
-    font-weight: 600;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-}
-
-.btn.primary {
-    background-color: #32a852;
-    color: #fff;
-}
-
-.btn.primary:hover {
-    background-color: #28a745;
-    transform: translateY(-3px);
-}
-
-
+/*AVARINI VIK USLUGI*/
 
 /* Fade-in анимация */
 @keyframes fadeIn {
@@ -1816,71 +1660,7 @@ header {
     
 }
 
-/* Hero секция */
-.shtrangove-hero {
-    background: 
-         linear-gradient(rgba(31, 31, 31, 0.75), rgba(31, 31, 31, 0.75)),
-    url('https://plus.unsplash.com/premium_photo-1664298589198-b15ff5382648?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D') no-repeat center center/cover;
-    color: #fff;
-    text-align: center;
-    padding: 100px 20px;
-    position: relative;
-}
 
-.shtrangove-hero-content {
-    max-width: 750px;
-    margin: 0 auto;
-    animation: fadeIn 1s ease forwards;
-}
-
-.shtrangove-hero h1 {
-    font-size: 3rem;
-    margin-bottom: 20px;
-    line-height: 1.2;
-    font-weight: 700;
-}
-
-.shtrangove-hero h2 {
-    font-size: 18px;
-    font-weight: 500;
-    color: #ffffff;
-    margin-bottom: 20px;
-}
-
-.shtrangove-hero-text {
-    font-size: 1.2rem;
-    margin-bottom: 30px;
-    line-height: 1.6;
-}
-
-.shtrangove-hero-contact {
-    font-size: 1.4rem;
-    margin-bottom: 20px;
-}
-
-.shtrangove-hero-contact i {
-    margin-right: 10px;
-    color: #32a852; /* зелена икона за телефон */
-}
-
-.shtrangove-hero-contact a {
-    color: #32a852;
-    text-decoration: none;
-    font-weight: 600;
-}
-
-/* Hero бутони - зелени и закръглени */
-.shtrangove-hero-buttons .btn {
-    padding: 14px 35px;
-    margin: 5px;
-    font-size: 1rem;
-    border-radius: 25px; /* леко закръглени */
-    text-decoration: none;
-    display: inline-block;
-    transition: all 0.3s ease;
-    font-weight: 600;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-}
 
 .service-duo {
     display: grid;
