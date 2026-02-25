@@ -7,43 +7,51 @@ require 'src/SMTP.php';
 require 'src/Exception.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $name = trim($_POST['name']);
-    $phone = trim($_POST['phone']);
-    $message = trim($_POST['message']);
-    $privacy = isset($_POST['privacy']) ? true : false;
+
+    $name = trim($_POST['name'] ?? '');
+    $phone = trim($_POST['phone'] ?? '');
+    $message = trim($_POST['message'] ?? '');
+    $privacy = isset($_POST['privacy']);
+
+    if (empty($name) || empty($phone) || empty($message)) {
+        exit("Моля, попълнете всички полета.");
+    }
 
     if (!$privacy) {
-        echo "Моля, потвърдете съгласието си.";
-        exit;
+        exit("Моля, потвърдете съгласието си.");
+    }
+
+    if (!preg_match('/^[0-9+ ]+$/', $phone)) {
+        exit("Невалиден телефон.");
     }
 
     $mail = new PHPMailer(true);
 
     try {
-        // Настройки за SMTP (ABV)
         $mail->isSMTP();
-        $mail->Host = 'smtp.abv.bg';
+        $mail->Host ='mail.vik-remonti123.com';
         $mail->SMTPAuth = true;
-        $mail->Username = 'softerm@abv.bg';    // твоя имейл
-       $mail->Password = 'ТУК_ТВОЯТА_ПАРОЛА';// парола за имейла
-        $mail->SMTPSecure = 'ssl';            // ABV работи със SSL
+        $mail->Username = 'office@vik-remonti123.com';
+        $mail->Password = 'ТУК_СЛОЖИ_ПАРОЛА';
+        $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
         $mail->Port = 465;
 
-        // Получател – можеш да пращаш на себе си или на друг имейл
-        $mail->setFrom('softerm@abv.bg', 'Softerm сайт');
-        $mail->addAddress('softerm@abv.bg', 'Softerm');
+        $mail->setFrom('office@vik-remonti123.com', 'VIK сайт');
+        $mail->addAddress('office@vik-remonti123.com');
 
-        // Съдържание
         $mail->isHTML(true);
         $mail->Subject = 'Ново запитване от сайта';
-        $mail->Body = "<b>Име:</b> {$name}<br>
-                       <b>Телефон:</b> {$phone}<br>
-                       <b>Съобщение:</b><br>{$message}";
+        $mail->Body = "
+            <b>Име:</b> {$name}<br>
+            <b>Телефон:</b> {$phone}<br>
+            <b>Съобщение:</b><br>{$message}
+        ";
 
         $mail->send();
-        echo "Запитването е изпратено успешно!";
+        header("Location: thanks.html");
+exit;
+
     } catch (Exception $e) {
-        echo "Грешка при изпращане: {$mail->ErrorInfo}";
+        echo "Грешка: {$mail->ErrorInfo}";
     }
 }
-?>
